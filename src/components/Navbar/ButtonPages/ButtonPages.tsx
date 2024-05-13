@@ -37,12 +37,12 @@ export default function ButtonPages({ icon, children, onClick }: IButtonPages) {
     >
       <Flex alignItems='center' gap={3}>
         <Icon
-          color={(active || hover) ? '#846ae6' : 'gray'} // Altera a cor do ícone com base no estado ativo ou no hover
+          color={(active || hover) ? '#846ae6' : 'gray'} 
           as={icon}
         />
         <Text
           fontSize='15px'
-          color={(active || hover) ? '#846ae6' : 'gray'} // Altera a cor do texto com base no estado ativo ou no hover
+          color={(active || hover) ? '#846ae6' : 'gray'} 
         >
           {children}
         </Text>

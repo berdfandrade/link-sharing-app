@@ -1,25 +1,47 @@
-import { Button, Text } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
-export default function PreviewButton() {
-    const [active, setActive] = useState(false);
+interface IPreviewButton {
+  onClick?: () => void; 
+}
 
-    const handleClick = () => {
-        setActive(!active);
-    };
+export default function PreviewButton({ onClick }: IPreviewButton) {
+  const [active, setActive] = useState(false);
+  const [hover, setHover] = useState(false);
 
-    return (
-        <Button
-            p={4}
-            pr={6}
-            pl={6}
-            variant={'outline'}
-            _hover={{bg: "#3504f8", color: "white" }} 
-            bg={active ? '#613ef2' : 'transparent'} 
-            borderColor='#613ef2'
-            onClick={handleClick}
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+
+  const handleClick = () => {
+    setActive(!active);
+    if (onClick) onClick();
+  };
+
+  return (
+    <Button
+      _hover={{ bg: '#672cfc', color: "#846ae6" }} // Aplica o hover para o botão inteiro
+      bg={active ? '#672cfc' : ''}
+      p={5}
+      pr={7}
+      pl={7}
+      variant={'outline'}  
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+    >
+      <Flex alignItems='center' gap={3}>
+        <Text
+          fontSize='15px'
+          color={(active || hover) ? '#ffffff' : 'gray'} 
         >
-            <Text color={active ? 'white' : '#613ef2'}>Preview</Text>
-        </Button>
-    );
+          Preview
+        </Text>
+      </Flex>
+    </Button>
+  );
 }
