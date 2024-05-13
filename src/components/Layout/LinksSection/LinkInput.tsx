@@ -6,8 +6,10 @@ export default function LinkInput() {
         <Flex gap={2} flexDir={'column'}>
             <Text color={'gray.600'} fontSize={'sm'}>Link</Text>
             <InputGroup>
-            <InputLeftAddon><Icon as={FaLink}/></InputLeftAddon>
-                <Input bg={'white'} w={'100%'} />
+                <InputLeftAddon>
+                    <Icon as={FaLink} />
+                 </InputLeftAddon>
+                    <Input bg={'white'} w={'100%'} />
             </InputGroup>
         </Flex>
     )

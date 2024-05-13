@@ -1,5 +1,5 @@
 import { Text, Flex, Select } from '@chakra-ui/react'
-import OPTIONS from './options'
+import OPTIONS from './OPTIONS'
 
 
 export default function SelectPlatform() {
