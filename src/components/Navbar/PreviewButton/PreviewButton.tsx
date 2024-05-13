@@ -13,12 +13,13 @@ export default function PreviewButton() {
             p={4}
             pr={6}
             pl={6}
-            _hover={{ bg: "#3504f8", color: "white" }} 
+            variant={'outline'}
+            _hover={{bg: "#3504f8", color: "white" }} 
             bg={active ? '#613ef2' : 'transparent'} 
             borderColor='#613ef2'
             onClick={handleClick}
         >
-            <Text color={active ? 'white' : ''}>Preview</Text>
+            <Text color={active ? 'white' : '#613ef2'}>Preview</Text>
         </Button>
     );
 }
