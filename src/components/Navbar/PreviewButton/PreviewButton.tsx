@@ -29,6 +29,7 @@ export default function PreviewButton({ onClick }: IPreviewButton) {
       p={5}
       pr={7}
       pl={7}
+      borderColor="#846ae6" 
       variant={'outline'}  
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -37,7 +38,7 @@ export default function PreviewButton({ onClick }: IPreviewButton) {
       <Flex alignItems='center' gap={3}>
         <Text
           fontSize='15px'
-          color={(active || hover) ? '#ffffff' : 'gray'} 
+          color={(active || hover) ? '#ffffff' : "#846ae6"} 
         >
           Preview
         </Text>
