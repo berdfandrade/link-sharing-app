@@ -3,7 +3,8 @@ import Phone from "../Phone/Phone";
 import AvatarSkeleton from "./AvatarSkeleton";
 import NameSkeleton from "./NameSkeleton";
 import LinkBox from "./LinkBox";
-import { FaGithub } from "react-icons/fa";
+import LinkBoxSection from "./LinkBoxSection";
+import LinkBoxSkeleton from "./LinkBoxSkeleton";
 
 
 export default function PhoneSection() {
@@ -20,9 +21,14 @@ export default function PhoneSection() {
                     </Flex>
                 </Center>
 
-                <Box border='1px solid black' h={'100%'}mr='auto' ml='auto' mt='10'>
-                <LinkBox icon={FaGithub} text={'Github'}/>
-                </Box>
+                <LinkBoxSection>
+                    <LinkBox platform={'github'}/>
+                    <LinkBox platform={'youtube'}/>
+                    <LinkBox platform={'linkedin'}/>
+                    <LinkBoxSkeleton/>
+                    <LinkBoxSkeleton/>
+                    
+                </LinkBoxSection>
             </Phone>
         </Box>
     )
