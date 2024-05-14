@@ -1,6 +1,6 @@
 import { Box, Icon, Text, Flex,} from '@chakra-ui/react';
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import SelectPlatform from '../SelectPlatform';
+import SelectPlatform from './SelectPlatform';
 import LinkInput from './LinkInput';
 
 interface ILink {

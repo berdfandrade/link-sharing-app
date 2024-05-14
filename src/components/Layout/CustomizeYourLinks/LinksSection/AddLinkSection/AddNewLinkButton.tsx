@@ -1,6 +1,6 @@
 import { Flex, Icon, Text, Button } from '@chakra-ui/react'
 import { FaPlus } from 'react-icons/fa'
-import { useStateLinkContext } from '../../../StateContext/StateLinkProvider'
+import { useStateLinkContext } from '../../../../StateContext/StateLinkProvider'
 
 export default function AddNewLinkButton() {
 
@@ -16,6 +16,7 @@ export default function AddNewLinkButton() {
             <Flex flexDir='row' alignItems={'center'} gap='2'>
 
                 <Icon as={FaPlus} />
+                {/* REMOVER GLOBALSTATE.LINKS.LENGTH */}
                 <Text>Add new Link {globalState.LINKS.length}</Text></Flex>
 
         </Button>

@@ -1,7 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 import Navbar from '../Navbar/Navbar';
 import PhoneSection from './PhoneSection/PhoneSection';
-import LinksSection from './LinksSection/AddLinkSection/LinksSection';
+// import CostumizeYourLinks from './CustomizeYourLinks/CostomizeYourLinks';
+import ProfileDetails from './ProfileDetails/ProfileDetails';
 
 export default function MainLayout() {
     return (
@@ -10,7 +11,8 @@ export default function MainLayout() {
             <Navbar />
             <Flex gap={4} height="100%">
                 <PhoneSection />
-                <LinksSection />
+                {/* <CostumizeYourLinks/> */}
+                <ProfileDetails/>
             </Flex>
         </Flex>
     );
