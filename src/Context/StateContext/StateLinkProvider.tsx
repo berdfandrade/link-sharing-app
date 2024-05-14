@@ -51,7 +51,7 @@ export const StateProvider = ({ children }: StateProviderProps) => {
     }));
   };
 
-
+  // Retorna o provider
   return (
     <StateLinkContext.Provider value={{ globalState, setGlobalState, updateLinks }}>
       {children}
