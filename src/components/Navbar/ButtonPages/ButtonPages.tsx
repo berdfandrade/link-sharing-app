@@ -1,15 +1,22 @@
 import { Button, Icon, Flex, Text } from '@chakra-ui/react';
-import { ComponentType, ReactNode, useState } from 'react';
+import { ComponentType, ReactNode, useState, useEffect } from 'react';
 
 interface IButtonPages {
   icon: ComponentType;
   children: ReactNode;
   onClick?: () => void; // Adicionado onClick como uma propriedade opcional
+  isActive?: boolean; // Adicionado isActive como uma propriedade opcional
 }
 
-export default function ButtonPages({ icon, children, onClick }: IButtonPages) {
+export default function ButtonPages({ icon, children, onClick, isActive }: IButtonPages) {
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    if (isActive !== undefined) {
+      setActive(isActive);
+    }
+  }, [isActive]);
 
   const handleMouseEnter = () => {
     setHover(true);

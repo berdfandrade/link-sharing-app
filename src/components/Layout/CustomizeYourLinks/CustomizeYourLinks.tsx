@@ -8,7 +8,7 @@ import SubtitleText from "../Subtitles/SubtitleText";
 import MainSection from "../MainSection/MainSection";
 
 
-export default function CostumizeYourLinks() {
+export default function CustomizeYourLinks() {
 
     const { globalState } = useStateLinkContext();
 
