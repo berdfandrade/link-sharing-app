@@ -1,13 +1,13 @@
 import { Box, Icon, Text, Flex,} from '@chakra-ui/react';
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import SelectPlatform from './SelectPlatform';
+import SelectPlatform from '../SelectPlatform';
 import LinkInput from './LinkInput';
 
 interface ILink {
     number: number;
 }
 
-export default function Link({ number }: ILink) {
+export default function AddLink({ number }: ILink) {
     return (
         <Box mt={8} p={4} w={'100%'} bg='gray.50' borderRadius='md'>
             <Flex flexDir={'column'} gap={2}>

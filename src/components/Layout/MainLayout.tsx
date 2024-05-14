@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import Navbar from '../Navbar/Navbar';
 import PhoneSection from './PhoneSection/PhoneSection';
-import LinksSection from './LinksSection/LinksSection';
+import LinksSection from './LinksSection/AddLinkSection/LinksSection';
 
 export default function MainLayout() {
     return (

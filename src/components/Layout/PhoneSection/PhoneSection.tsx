@@ -7,6 +7,7 @@ import LinkBoxSection from "./LinkBoxSection";
 import LinkBoxSkeleton from "./LinkBoxSkeleton";
 
 
+
 export default function PhoneSection() {
     return (
         <Box width="40%" p={4} bg={'white'}
@@ -20,14 +21,12 @@ export default function PhoneSection() {
                     <NameSkeleton/>
                     </Flex>
                 </Center>
-
                 <LinkBoxSection>
                     <LinkBox platform={'github'}/>
                     <LinkBox platform={'youtube'}/>
                     <LinkBox platform={'linkedin'}/>
                     <LinkBoxSkeleton/>
                     <LinkBoxSkeleton/>
-                    
                 </LinkBoxSection>
             </Phone>
         </Box>
