@@ -1,5 +1,5 @@
 import { Box, Code, Text } from '@chakra-ui/react';
-import { useStateLinkContext } from '../../Context/StateContext/StateLinkProvider';
+import { useStateLinkContext } from '../../context/StateContext/StateLinkProvider';
 
 export default function GlobalObjectRender() {
     const { globalObject } = useStateLinkContext();

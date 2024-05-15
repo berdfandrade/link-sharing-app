@@ -1,14 +1,14 @@
 import MainLayout from './components/Layout/MainLayout'
-import { StateProvider } from './Context/StateContext/StateLinkProvider'
+import { StateProvider } from './context/StateContext/StateLinkProvider'
 
 function App() {
 
 
   return (
     <>  
-    <StateProvider>
-       <MainLayout/>
-    </StateProvider>
+      <StateProvider>
+          <MainLayout/>
+      </StateProvider>
     </>
   )
 }

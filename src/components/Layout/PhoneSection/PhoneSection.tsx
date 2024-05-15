@@ -4,7 +4,7 @@ import AvatarSkeleton from "./AvatarSkeleton";
 import NameSkeleton from "./NameSkeleton";
 import LinkBox from "./LinkBox";
 import LinkBoxSection from "./LinkBoxSection";
-import { useStateLinkContext } from "../../../Context/StateContext/StateLinkProvider";
+import { useStateLinkContext } from "../../../context/StateContext/StateLinkProvider";
 
 
 

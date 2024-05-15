@@ -2,7 +2,7 @@ import AddNewLinkButton from "./LinksSection/AddLinkSection/AddNewLinkButton";
 import { Box, Divider } from '@chakra-ui/react'
 import AddLink from "./LinksSection/AddLinkSection/AddLink";
 import SaveButton from "./LinksSection/SaveButton";
-import { useStateLinkContext } from "../../../Context/StateContext/StateLinkProvider";
+import { useStateLinkContext } from "../../../context/StateContext/StateLinkProvider";
 import HeadingPages from "../Heading/HeadingPages";
 import SubtitleText from "../Subtitles/SubtitleText";
 import MainSection from "../MainSection/MainSection";

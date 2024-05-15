@@ -1,6 +1,6 @@
 import { Flex, Icon, Text, Button } from '@chakra-ui/react'
 import { FaPlus } from 'react-icons/fa'
-import { useStateLinkContext } from '../../../../../Context/StateContext/StateLinkProvider'
+import { useStateLinkContext } from '../../../../../context/StateContext/StateLinkProvider'
 
 export default function AddNewLinkButton() {
 
