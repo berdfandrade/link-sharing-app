@@ -1,14 +1,17 @@
 import { Center, Box, Flex} from "@chakra-ui/react";
-import Phone from "../Phone/Phone";
+import Phone from "./Phone/Phone";
 import AvatarSkeleton from "./AvatarSkeleton";
 import NameSkeleton from "./NameSkeleton";
 import LinkBox from "./LinkBox";
 import LinkBoxSection from "./LinkBoxSection";
-import LinkBoxSkeleton from "./LinkBoxSkeleton";
+import { useStateLinkContext } from "../../../Context/StateContext/StateLinkProvider";
 
 
 
 export default function PhoneSection() {
+
+    const { globalObject } = useStateLinkContext();
+
     return (
         <Box width="40%" p={4} bg={'white'}
             borderRadius='md' height="100%"
@@ -22,11 +25,12 @@ export default function PhoneSection() {
                     </Flex>
                 </Center>
                 <LinkBoxSection>
-                    <LinkBox platform={'github'}/>
-                    <LinkBox platform={'youtube'}/>
-                    <LinkBox platform={'linkedin'}/>
-                    <LinkBoxSkeleton/>
-                    <LinkBoxSkeleton/>
+                {globalObject.LINKS.map((link, index) => (
+                <div key={index}>
+                    <LinkBox platform={link.platform || ''} url={link.url || ''} />
+                </div>
+            ))}
+
                 </LinkBoxSection>
             </Phone>
         </Box>

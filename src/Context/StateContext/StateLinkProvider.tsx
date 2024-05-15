@@ -6,8 +6,8 @@ interface GlobalState {
 }
 
 interface StateContextType {
-  globalState: GlobalState;
-  setGlobalState: (state: GlobalState) => void;
+  globalObject: GlobalState;
+  setGlobalObject: (state: GlobalState) => void;
   updateLinks: (newLinks: object) => void; // Adicionando a propriedade updateLinks
 }
 
@@ -30,30 +30,30 @@ interface StateProviderProps {
 // State provider em si
 export const StateProvider = ({ children }: StateProviderProps) => {
 
-  // Definimos aqui nosso ESTADO GLOBAL, ou seja o que vamos usar na aplicação inteira!
-  const [globalState, setGlobalState] = useState<GlobalState>({
+  // Definimos aqui nosso ESTADO GLOBAL, ou seja o objeto que vamos usar na aplicação inteira!
+  const [globalObject, setGlobalObject] = useState<GlobalState>({
     LINKS: [{
       platform: '',
       url: ''
-    }]
-    ,
+    }],
     USER: {}
   });
 
   // Isso aqui "empurra" os links para o objeto LINKS dentro do estado global
   const updateLinks = (newLinks: object) => {
-    setGlobalState(prevState => ({
+    setGlobalObject(prevState => ({
       ...prevState,
-      LINKS: {
+      LINKS: [
         ...prevState.LINKS,
-        ...newLinks
-      }
+        newLinks
+      ]
     }));
   };
+  
 
   // Retorna o provider
   return (
-    <StateLinkContext.Provider value={{ globalState, setGlobalState, updateLinks }}>
+    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks }}>
       {children}
     </StateLinkContext.Provider>
   );

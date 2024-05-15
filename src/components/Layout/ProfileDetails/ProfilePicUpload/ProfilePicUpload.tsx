@@ -1,5 +1,4 @@
-import { Box, Image, Icon } from '@chakra-ui/react';
-import { FaCamera } from 'react-icons/fa';
+import { Box, Image } from '@chakra-ui/react';
 
 interface IProfilePicUpload {
     url: string;

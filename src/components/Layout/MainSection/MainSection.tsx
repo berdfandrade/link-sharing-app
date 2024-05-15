@@ -7,7 +7,7 @@ interface IMainSection {
 
 export default function MainSection ({children } : IMainSection) {
    return (
-     <Box width="60%" bg='white' p={10} borderRadius='md' height="100%">
+     <Box width="60%" bg='white' p={10} borderRadius='md' height="100%" overflowX={'auto'}>
         {children}
      </Box> 
    )

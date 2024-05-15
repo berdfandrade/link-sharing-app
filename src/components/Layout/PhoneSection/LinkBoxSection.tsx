@@ -2,7 +2,7 @@ import { Box, VStack } from '@chakra-ui/react'
 import { ReactNode } from 'react';
 
 interface ILinkBoxSection {
-    children: ReactNode;
+    children? : ReactNode
 }
 
 export default function LinkBoxSection({ children }: ILinkBoxSection) {

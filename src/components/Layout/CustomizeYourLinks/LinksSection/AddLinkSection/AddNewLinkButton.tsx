@@ -1,14 +1,14 @@
 import { Flex, Icon, Text, Button } from '@chakra-ui/react'
 import { FaPlus } from 'react-icons/fa'
-// import { useStateLinkContext } from '../../../../../Context/StateContext/StateLinkProvider'
+import { useStateLinkContext } from '../../../../../Context/StateContext/StateLinkProvider'
 
 export default function AddNewLinkButton() {
 
-    // const { updateLinks, globalState } = useStateLinkContext()
+    const { updateLinks  } = useStateLinkContext()
 
 
     const handleClick = () => {
-        // updateLinks({ platform: '', url : ''});
+        updateLinks({ platform: '', url : ''});
     }
 
     return (
