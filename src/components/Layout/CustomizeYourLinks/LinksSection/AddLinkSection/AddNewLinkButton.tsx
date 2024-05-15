@@ -14,11 +14,9 @@ export default function AddNewLinkButton() {
     return (
         <Button onClick={handleClick} variant={'outline'} colorScheme='purple' w='100%'>
             <Flex flexDir='row' alignItems={'center'} gap='2'>
-
                 <Icon as={FaPlus} />
-                {/* REMOVER GLOBALSTATE.LINKS.LENGTH */}
-                <Text>Add new Link</Text></Flex>
-
+                <Text>Add new Link</Text>
+            </Flex>
         </Button>
     )
 }
