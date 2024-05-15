@@ -1,10 +1,31 @@
-import { Box, Image} from '@chakra-ui/react'
+import { Box, Image, Icon } from '@chakra-ui/react';
+import { FaCamera } from 'react-icons/fa';
 
-export default function ProfilePicUpload() {
+interface IProfilePicUpload {
+    url: string;
+}
+
+export default function ProfilePicUpload({ url }: IProfilePicUpload) {
     return (
-        <>
-            <Box boxSize={'160px'} _hover={{ 'cursor': 'pointer' }} borderRadius='lg' bg={'gray.400'}></Box>
-            {/* <Image src='https://br.web.img2.acsta.net/c_310_420/pictures/18/07/25/22/12/5616819.jpg'></Image> */}
-        </>
+        <Box
+            position="relative"
+            boxSize={'160px'}
+            borderRadius='lg'
+            _hover={{'cursor' : 'pointer'}}
+        >
+
+            <Image
+                borderRadius={'lg'}
+                src={url ? url : ''}
+                objectFit="cover"
+                width="100%"
+                height="100%"
+                position="absolute"
+                top="0"
+                left="0"
+            />
+
+            </Box>
+        
     )
-} 
+}
