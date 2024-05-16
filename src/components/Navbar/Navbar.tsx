@@ -15,7 +15,13 @@ export default function Navbar({ setSelectedPage }) {
   };
 
   return (
-    <Flex p={4} borderRadius="md" justify="space-between" bg={"white"} alignItems="center">
+    <Flex
+      p={4}
+      borderRadius="md"
+      justify="space-between"
+      bg={"white"}
+      alignItems="center"
+    >
       {/* LOGO */}
       <Logo />
 
@@ -36,7 +42,7 @@ export default function Navbar({ setSelectedPage }) {
           Profile Details
         </ButtonPages>
       </Flex>
-      <PreviewButton/>
+      <PreviewButton />
     </Flex>
   );
 }

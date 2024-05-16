@@ -1,5 +1,5 @@
-import { Button, Icon, Flex, Text } from '@chakra-ui/react';
-import { ComponentType, ReactNode, useState, useEffect } from 'react';
+import { Button, Icon, Flex, Text } from "@chakra-ui/react";
+import { ComponentType, ReactNode, useState, useEffect } from "react";
 
 interface IButtonPages {
   icon: ComponentType;
@@ -8,7 +8,12 @@ interface IButtonPages {
   isActive?: boolean; // Adicionado isActive como uma propriedade opcional
 }
 
-export default function ButtonPages({ icon, children, onClick, isActive }: IButtonPages) {
+export default function ButtonPages({
+  icon,
+  children,
+  onClick,
+  isActive,
+}: IButtonPages) {
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -33,8 +38,8 @@ export default function ButtonPages({ icon, children, onClick, isActive }: IButt
 
   return (
     <Button
-      _hover={{ bg: '#e0d4ff', color: "#846ae6" }} // Aplica o hover para o botão inteiro
-      bg={active ? '#e0d4ff' : ''}
+      _hover={{ bg: "#e0d4ff", color: "#846ae6" }} // Aplica o hover para o botão inteiro
+      bg={active ? "#e0d4ff" : ""}
       p={5}
       pr={7}
       pl={7}
@@ -42,15 +47,9 @@ export default function ButtonPages({ icon, children, onClick, isActive }: IButt
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
-      <Flex alignItems='center' gap={3}>
-        <Icon
-          color={(active || hover) ? '#846ae6' : 'gray'} 
-          as={icon}
-        />
-        <Text
-          fontSize='15px'
-          color={(active || hover) ? '#846ae6' : 'gray'} 
-        >
+      <Flex alignItems="center" gap={3}>
+        <Icon color={active || hover ? "#846ae6" : "gray"} as={icon} />
+        <Text fontSize="15px" color={active || hover ? "#846ae6" : "gray"}>
           {children}
         </Text>
       </Flex>
