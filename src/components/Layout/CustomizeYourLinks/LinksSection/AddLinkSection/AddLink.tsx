@@ -20,14 +20,17 @@ interface ILink {
 }
 
 export function AddLink({ number }: ILink) {
-  const { globalObject } = useStateLinkContext();
-
+  const { globalObject, removeLink  } = useStateLinkContext();
   const [selectedOption, setSelectedOption] = useState(OPTIONS[0]);
 
   const handleChange = (event) => {
     const selectedValue = event.target.value;
     const selected = OPTIONS.find((option) => option.label === selectedValue);
     setSelectedOption(selected);
+  };
+
+  const handleRemove = () => {
+    removeLink(number);
   };
 
   return (
@@ -44,7 +47,12 @@ export function AddLink({ number }: ILink) {
             <Icon mt={1} as={HiOutlineMenuAlt4} />
             <Text as="b">Link #{number + 1}</Text>
           </Flex>
-          <Icon _hover={{ cursor: "pointer" }} boxSize="20px" as={CloseIcon} />
+          <Icon
+            _hover={{ cursor: "pointer" }}
+            boxSize="20px"
+            as={CloseIcon}
+            onClick={handleRemove}
+          />
         </Flex>
         <Text fontSize="sm" color={"gray.600"}>
           Platform

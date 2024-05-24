@@ -1,19 +1,24 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
+interface Link {
+  platform: string;
+  url: string;
+}
+
 interface GlobalState {
-  LINKS: object[]; // ou o tipo adequado para selectOption
-  USER: object; // ou o tipo adequado para otherData
+  LINKS: Link[];
+  USER: object; // Defina o tipo apropriado se houver mais detalhes
 }
 
 interface StateContextType {
   globalObject: GlobalState;
   setGlobalObject: (state: GlobalState) => void;
-  updateLinks: (newLinks: object) => void; // Adicionando a propriedade updateLinks
+  updateLinks: (newLink: Link) => void;
+  removeLink: (index: number) => void;
 }
 
 const StateLinkContext = createContext<StateContextType | undefined>(undefined);
 
-// Lidando com as exceções na criação do StateProvider
 export const useStateLinkContext = () => {
   const context = useContext(StateLinkContext);
   if (!context) {
@@ -22,37 +27,36 @@ export const useStateLinkContext = () => {
   return context;
 };
 
-// Interface
 interface StateProviderProps {
   children: ReactNode;
 }
 
-// State provider em si
 export const StateProvider = ({ children }: StateProviderProps) => {
-  // Definimos aqui nosso ESTADO GLOBAL, ou seja o objeto que vamos usar na aplicação inteira!
   const [globalObject, setGlobalObject] = useState<GlobalState>({
-    LINKS: [
-      {
-        platform: "",
-        url: "",
-      },
-    ],
+    LINKS: [],
     USER: {},
   });
 
-  // Isso aqui "empurra" os links para o objeto LINKS dentro do estado global
-  const updateLinks = (newLinks: object) => {
+  const updateLinks = (newLink: Link) => {
     setGlobalObject((prevState) => ({
       ...prevState,
-      LINKS: [...prevState.LINKS, newLinks],
+      LINKS: [...prevState.LINKS, newLink],
     }));
   };
 
-  // Retorna o provider
+  const removeLink = (index: number) => {
+    setGlobalObject((prevState) => {
+      const newLinks = [...prevState.LINKS];
+      newLinks.splice(index, 1);
+      return {
+        ...prevState,
+        LINKS: newLinks,
+      };
+    });
+  };
+
   return (
-    <StateLinkContext.Provider
-      value={{ globalObject, setGlobalObject, updateLinks }}
-    >
+    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks, removeLink }}>
       {children}
     </StateLinkContext.Provider>
   );
