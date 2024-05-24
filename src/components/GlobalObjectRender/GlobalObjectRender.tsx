@@ -13,7 +13,7 @@ export default function GlobalObjectRender() {
 
   return (
     <>
-      <Text as="b" color="gray.500" mt={3}>
+      <Text as="b" color="gray.500" mt={10}>
         Global object render
       </Text>
       <Box

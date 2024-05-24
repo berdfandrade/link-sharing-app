@@ -20,56 +20,62 @@ export default function LinkBox({ platform, url }: ILinkBox) {
 
   // Cores condicionais
   const BG_COLOR =
-    platform === "github"
+    platform === "GitHub"
       ? "black"
-      : platform === "youtube"
+      : platform === "YouTube"
       ? "red"
-      : platform === "linkedin"
+      : platform === "Linkedin"
       ? "#0072B1"
-      : platform === "twitch"
+      : platform === "Twitch"
       ? "#6441a5"
-      : platform === "twitter"
-      ? "twitter"
-      : platform === "instagram"
+      : platform === "Twitter"
+      ? "#1da1f2"
+      : platform === "Instagram"
       ? "orange"
       : "gray.200";
 
+  // Gradiente radial para Instagram
+  const BG_GRADIENT =
+    platform === "Instagram"
+      ? "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)"
+      : "";
+
   // Icones condicionais
   const ICON =
-    platform === "github"
+    platform === "GitHub"
       ? FaGithub
-      : platform === "youtube"
+      : platform === "YouTube"
       ? FaYoutube
-      : platform === "linkedin"
+      : platform === "Linkedin"
       ? FaLinkedin
-      : platform === "twitch"
+      : platform === "Twitch"
       ? FaTwitch
-      : platform === "twitter"
+      : platform === "Twitter"
       ? FaTwitter
-      : platform === "instagram"
+      : platform === "Instagram"
       ? FaInstagram
       : undefined;
 
   // String de text condicional
   const TEXT =
-    platform === "github"
+    platform === "GitHub"
       ? "GitHub"
-      : platform === "youtube"
+      : platform === "YouTube"
       ? "YouTube"
-      : platform === "linkedin"
+      : platform === "Linkedin"
       ? "LinkedIn"
-      : platform === "twitch"
+      : platform === "Twitch"
       ? "Twitch"
-      : platform === "twitter"
+      : platform === "Twitter"
       ? "Twitter"
-      : platform === "instagram"
+      : platform === "Instagram"
       ? "Instagram"
       : "";
 
   // O componente em si
   return (
     <Box
-      bg={BG_COLOR}
+      bg={platform === "Instagram" ? BG_GRADIENT : BG_COLOR}
       p={3}
       w="270px"
       h="48px"

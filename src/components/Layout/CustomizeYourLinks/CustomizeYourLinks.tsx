@@ -19,8 +19,6 @@ export default function CustomizeYourLinks() {
       </SubtitleText>
       <AddNewLinkButton />
 
-      {/* <GlobalObjectRender/> */}
-
       {globalObject.LINKS.map((link, index) => (
         <div key={index}>
           <AddLink number={index} />

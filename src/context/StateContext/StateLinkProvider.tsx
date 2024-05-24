@@ -14,6 +14,7 @@ interface StateContextType {
   globalObject: GlobalState;
   setGlobalObject: (state: GlobalState) => void;
   updateLinks: (newLink: Link) => void;
+  updateLinkAtIndex: (index: number, updatedLink: Link) => void;
   removeLink: (index: number) => void;
 }
 
@@ -44,6 +45,17 @@ export const StateProvider = ({ children }: StateProviderProps) => {
     }));
   };
 
+  const updateLinkAtIndex = (index: number, updatedLink: Link) => {
+    setGlobalObject((prevState) => {
+      const newLinks = [...prevState.LINKS];
+      newLinks[index] = updatedLink;
+      return {
+        ...prevState,
+        LINKS: newLinks,
+      };
+    });
+  };
+
   const removeLink = (index: number) => {
     setGlobalObject((prevState) => {
       const newLinks = [...prevState.LINKS];
@@ -56,7 +68,7 @@ export const StateProvider = ({ children }: StateProviderProps) => {
   };
 
   return (
-    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks, removeLink }}>
+    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks, updateLinkAtIndex, removeLink }}>
       {children}
     </StateLinkContext.Provider>
   );

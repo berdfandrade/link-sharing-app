@@ -6,7 +6,7 @@ export default function AddNewLinkButton() {
   const { updateLinks } = useStateLinkContext();
 
   const handleClick = () => {
-    updateLinks({ platform: "", url: "" });
+    updateLinks({ platform: "GitHub", url: "" });
   };
 
   return (

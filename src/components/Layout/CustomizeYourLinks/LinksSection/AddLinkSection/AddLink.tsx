@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FaLink } from "react-icons/fa";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import OPTIONS from "./OPTIONS";
 import { IoMdCloseCircleOutline as CloseIcon } from "react-icons/io";
 import { useStateLinkContext } from "../../../../../context/StateContext/StateLinkProvider";
@@ -20,13 +20,31 @@ interface ILink {
 }
 
 export function AddLink({ number }: ILink) {
-  const { globalObject, removeLink  } = useStateLinkContext();
+  
+  const { globalObject, updateLinkAtIndex, removeLink } = useStateLinkContext();
   const [selectedOption, setSelectedOption] = useState(OPTIONS[0]);
+  const [url, setUrl] = useState("");
 
-  const handleChange = (event) => {
+  useEffect(() => {
+    if (globalObject.LINKS[number]) {
+      setSelectedOption(
+        OPTIONS.find((option) => option.label === globalObject.LINKS[number].platform) || OPTIONS[0]
+      );
+      setUrl(globalObject.LINKS[number].url);
+    }
+  }, [number, globalObject.LINKS]);
+
+  const handlePlatformChange = (event) => {
     const selectedValue = event.target.value;
     const selected = OPTIONS.find((option) => option.label === selectedValue);
     setSelectedOption(selected);
+    updateLinkAtIndex(number, { platform: selected.label, url });
+  };
+
+  const handleUrlChange = (event) => {
+    const newUrl = event.target.value;
+    setUrl(newUrl);
+    updateLinkAtIndex(number, { platform: selectedOption.label, url: newUrl });
   };
 
   const handleRemove = () => {
@@ -34,7 +52,6 @@ export function AddLink({ number }: ILink) {
   };
 
   return (
-    // AddLinkBox
     <Box mt={8} p={4} w={"100%"} bg="gray.50" borderRadius="md">
       <Flex flexDir={"column"} gap={2}>
         <Flex
@@ -58,13 +75,12 @@ export function AddLink({ number }: ILink) {
           Platform
         </Text>
 
-        {/* Platform select */}
         <Flex alignItems="center">
           <Icon as={selectedOption.icon} boxSize={5} mr={3} />
           <Select
             bg="white"
             value={selectedOption.label}
-            onChange={handleChange}
+            onChange={handlePlatformChange}
           >
             {OPTIONS.map((option, index) => (
               <option key={index} value={option.label}>
@@ -74,7 +90,6 @@ export function AddLink({ number }: ILink) {
           </Select>
         </Flex>
 
-        {/* url input */}
         <Flex gap={2} flexDir={"column"}>
           <Text color={"gray.600"} fontSize={"sm"}>
             Link
@@ -101,6 +116,8 @@ export function AddLink({ number }: ILink) {
               }
               bg={"white"}
               w={"100%"}
+              value={url}
+              onChange={handleUrlChange}
             />
           </InputGroup>
         </Flex>
