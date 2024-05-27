@@ -16,6 +16,7 @@ import {
 import { useState } from "react";
 import PreviewPage from "../../Preview/PreviewPage";
 import { FaEye } from "react-icons/fa";
+import PreviewPageMobile from "../../Preview/PreviewPageMobile";
 
 interface IPreviewButton {
   onClick?: () => void;
@@ -78,22 +79,25 @@ export default function PreviewButton({ onClick }: IPreviewButton) {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <Box bg={"#672cfc"} h={"300px"} borderBottomRadius={"40"}>
-            <DrawerHeader>
-              <Box mt={3} bg={"white"} p={4} borderRadius={"lg"}>
-                <Flex justifyContent={"space-between"}>
-                  <Button variant="outline" onClick={onClose}>
-                    Back to Editor
-                  </Button>
-                  <Button color="white" bg="#672cfc" mr={3}>
-                    Share Link
-                  </Button>
-                </Flex>
-              </Box>
-            </DrawerHeader>
-          </Box>
+          {isMobile ? null : (
+            <Box bg={"#672cfc"} h={"300px"} borderBottomRadius={"40"}>
+              <DrawerHeader>
+                <Box mt={3} bg={"white"} p={4} borderRadius={"lg"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Button variant="outline" onClick={onClose}>
+                      Back to Editor
+                    </Button>
+                    <Button color="white" bg="#672cfc" mr={3}>
+                      Share Link
+                    </Button>
+                  </Flex>
+                </Box>
+              </DrawerHeader>
+            </Box>
+          )}
+
           <DrawerBody w="100%" h={"100%"}>
-            <PreviewPage />
+            {isMobile ? <PreviewPageMobile /> : <PreviewPage />}
           </DrawerBody>
           <DrawerFooter></DrawerFooter>
         </DrawerContent>
