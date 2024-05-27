@@ -16,7 +16,7 @@ export default function CustomizeYourLinks() {
     <MainSection>
  
       <HeadingPages>Customize Your Links</HeadingPages>
-      <SubtitleText marginBottom={isMobile ? 3 : 10}>
+      <SubtitleText marginBottom={isMobile ? 10 : 4}>
         Add/edit/remove links below and then share all your profiles with the
         world!
       </SubtitleText>

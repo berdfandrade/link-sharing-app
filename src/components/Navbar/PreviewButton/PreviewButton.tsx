@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   useDisclosure,
-  Modal,
   Drawer,
   DrawerBody,
   DrawerFooter,
