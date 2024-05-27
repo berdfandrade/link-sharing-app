@@ -1,30 +1,34 @@
-import { Box, Image } from '@chakra-ui/react';
+import { Box, Image } from "@chakra-ui/react";
+import HoverPic from "./HoverPic"; // Certifique-se de ajustar o caminho para onde está o HoverPic
+import NullPhotoIcon from "./NullPhotoIcon";
 
 interface IProfilePicUpload {
-    url: string | null;
+  url: string | null;
 }
 
 export default function ProfilePicUpload({ url }: IProfilePicUpload) {
-    return (
-        <Box
-            position="relative"
-            boxSize={'160px'}
-            borderRadius='lg'
-            _hover={{'cursor' : 'pointer'}}
-        >
+  return (
+    <Box
+      position="relative"
+      boxSize="160px"
+      borderRadius="lg"
+      overflow="hidden"
+      role="group"
+      _hover={{ cursor: "pointer" }}
+    >
+      {url ? (
+        <Image
+          borderRadius="lg"
+          src={url}
+          objectFit="cover"
+          width="100%"
+          height="100%"
+        />
+      ) : (
+        <NullPhotoIcon />
+      )}
 
-            <Image
-                borderRadius={'lg'}
-                src={url ? url : 'https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg'}
-                objectFit="cover"
-                width="100%"
-                height="100%"
-                position="absolute"
-                top="0"
-                left="0"
-            />
-
-            </Box>
-        
-    )
+      <HoverPic />
+    </Box>
+  );
 }

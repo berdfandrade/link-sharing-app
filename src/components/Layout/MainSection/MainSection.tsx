@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery} from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface IMainSection {
@@ -6,9 +6,12 @@ interface IMainSection {
 }
 
 export default function MainSection({ children }: IMainSection) {
+
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <Box
-      width="60%"
+      width={isMobile ? '100%' : '60%'}
       bg="white"
       p={10}
       borderRadius="md"

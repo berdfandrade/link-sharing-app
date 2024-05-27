@@ -1,18 +1,22 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, useMediaQuery } from "@chakra-ui/react";
 import ProfilePicUpload from "./ProfilePicUpload";
 
 export default function ProfilePicSection() {
+
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
-    <Box bg="gray.100" h="200px" p={4}borderRadius={"md"}>
+    <Box bg="gray.100" h={isMobile ? "40%" : "200px"} p={4}borderRadius={"md"}>
       <Flex
-        flexDir={"row"}
+        gap={isMobile ? 5 : 0}
+        flexDir={isMobile ? "column" : "row"}
         justifyContent={"space-between"}
-        alignItems={"center"}
+        alignItems={isMobile ? "left" : 'center'}
       >
-        <Text color={"gray.500"} as="b">
+        <Text color={"gray.500"} fontSize={18} as="b">
           Profile Picture
         </Text>
-        <ProfilePicUpload />
+          <ProfilePicUpload />
         <Flex color={"gray.500"} mr={5} flexDir={"column"}>
           <Text fontSize={"xs"}>Image must be below 1024X1024px.</Text>
           <Text fontSize={"xs"}>Use PNG, JPG, or BMP format.</Text>

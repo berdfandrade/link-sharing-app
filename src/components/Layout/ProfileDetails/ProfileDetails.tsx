@@ -9,7 +9,7 @@ export default function ProfileDetails () {
     return (
         <MainSection>
             <HeadingPages>Profile page</HeadingPages>
-            <SubtitleText>Add your details to create a personal touch to your profile</SubtitleText>
+            <SubtitleText marginBottom={10}>Add your details to create a personal touch to your profile</SubtitleText>
             <Flex flexDir='column' gap={10}>
             <ProfilePicSection/>
             <NameEmailSection/>

@@ -7,7 +7,7 @@ interface IHeadingPages {
 
 export default function HeadingPages({ children }: IHeadingPages) {
   return (
-    <Text as="b" fontSize={30} mb={2}>
+    <Text as="b" fontSize={[25, 30]} mb={2}>
       {children}
     </Text>
   );

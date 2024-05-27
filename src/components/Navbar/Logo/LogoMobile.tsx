@@ -1,7 +1,7 @@
-import { Box, Text, Icon, Flex } from "@chakra-ui/react";
+import { Box, Icon, Flex } from "@chakra-ui/react";
 import { FaLink } from "react-icons/fa";
 
-export default function Logo() {
+export default function LogoMobile() {
   return (
     <>
       <Box>
@@ -16,12 +16,6 @@ export default function Logo() {
           >
             <Icon boxSize="18px" color="white" as={FaLink} />
           </Box>
-          <Text fontSize={"18"} as="b">
-            Link
-          </Text>
-          <Text fontSize="18" as="b">
-            Sprout
-          </Text>
         </Flex>
       </Box>
     </>

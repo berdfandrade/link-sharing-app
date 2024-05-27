@@ -1,5 +1,5 @@
 import AddNewLinkButton from "./LinksSection/AddLinkSection/AddNewLinkButton";
-import { Box, Divider } from "@chakra-ui/react";
+import { Box, Divider, useMediaQuery } from "@chakra-ui/react";
 import { AddLink } from "./LinksSection/AddLinkSection/AddLink";
 import SaveButton from "./LinksSection/SaveButton";
 import { useStateLinkContext } from "../../../context/StateContext/StateLinkProvider";
@@ -8,17 +8,20 @@ import SubtitleText from "../Subtitles/SubtitleText";
 import MainSection from "../MainSection/MainSection";
 
 export default function CustomizeYourLinks() {
+
+  const [isMobile] = useMediaQuery("(max-width : 768px)");
   const { globalObject } = useStateLinkContext();
 
   return (
     <MainSection>
+ 
       <HeadingPages>Customize Your Links</HeadingPages>
-      <SubtitleText>
+      <SubtitleText marginBottom={isMobile ? 3 : 10}>
         Add/edit/remove links below and then share all your profiles with the
         world!
       </SubtitleText>
       <AddNewLinkButton />
-
+  
       {globalObject.LINKS.map((link, index) => (
         <div key={index}>
           <AddLink number={index} />

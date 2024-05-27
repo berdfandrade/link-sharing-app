@@ -1,4 +1,4 @@
-import { Button, Icon, Flex, Text } from "@chakra-ui/react";
+import { Button, Icon, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import { ComponentType, ReactNode, useState, useEffect } from "react";
 
 interface IButtonPages {
@@ -14,6 +14,7 @@ export default function ButtonPages({
   onClick,
   isActive,
 }: IButtonPages) {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [active, setActive] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -41,17 +42,19 @@ export default function ButtonPages({
       _hover={{ bg: "#e0d4ff", color: "#846ae6" }} // Aplica o hover para o botão inteiro
       bg={active ? "#e0d4ff" : ""}
       p={5}
-      pr={7}
-      pl={7}
+      pr={isMobile ? 7 : 7}
+      pl={isMobile ? 7 : 7}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
       <Flex alignItems="center" gap={3}>
         <Icon color={active || hover ? "#846ae6" : "gray"} as={icon} />
-        <Text fontSize="15px" color={active || hover ? "#846ae6" : "gray"}>
-          {children}
-        </Text>
+        {isMobile ? null : (
+          <Text fontSize="15px" color={active || hover ? "#846ae6" : "gray"}>
+            {children}
+          </Text>
+        )}
       </Flex>
     </Button>
   );
