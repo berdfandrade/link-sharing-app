@@ -14,7 +14,7 @@ export default function NameEmailInput({
     <Box>
       <Flex justifyContent={"space-between"} flexDir={"row"}>
         <Text fontSize={"12px"}>{children}</Text>
-        <Input placeholder={placeholder} w={"70%"} bg={"white"} />
+        <Input focusBorderColor='purple.400' placeholder={placeholder} w={"70%"} bg={"white"} />
       </Flex>
     </Box>
   );

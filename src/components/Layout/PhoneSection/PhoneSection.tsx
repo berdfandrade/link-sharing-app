@@ -1,6 +1,7 @@
 import { Center, Box, Flex } from "@chakra-ui/react";
 import Phone from "./Phone/Phone";
 import AvatarSkeleton from "./AvatarSkeleton";
+// import AvatarPic from "./AvatarPic";
 import NameSkeleton from "./NameSkeleton";
 import LinkBox from "./LinkBox";
 import LinkBoxSection from "./LinkBoxSection";
@@ -22,7 +23,10 @@ export default function PhoneSection() {
       <Phone>
         <Center>
           <Flex gap={8} flexDir="column">
-            <AvatarSkeleton />
+            {/* PASSAR O avatarURL para o globalObject e depois para isso aqui */}
+            {/* {avatarURL ? <AvatarPic url={avatarURL}/> : <AvatarSkeleton/>} */}
+            <AvatarSkeleton/>
+            {/* <AvatarPic url={'http://localhost:5173/af3a0af9-9559-46dc-a3a2-769cc0640c9d'} /> */}
             <NameSkeleton />
           </Flex>
         </Center>

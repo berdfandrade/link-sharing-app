@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Button, Avatar } from "@chakra-ui/react";
+import { Box, Flex, Button} from "@chakra-ui/react";
 import LinkBoxSection from "../Layout/PhoneSection/LinkBoxSection";
 import { useStateLinkContext } from "../../context/StateContext/StateLinkProvider";
 import LinkBox from "../Layout/PhoneSection/LinkBox";

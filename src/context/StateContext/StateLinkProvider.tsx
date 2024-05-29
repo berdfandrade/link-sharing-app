@@ -5,9 +5,16 @@ interface Link {
   url: string;
 }
 
+interface User {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  profileImage?: string | null;
+}
+
 interface GlobalState {
   LINKS: Link[];
-  USER: object; // Defina o tipo apropriado se houver mais detalhes
+  USER: User;
 }
 
 interface StateContextType {
@@ -16,6 +23,8 @@ interface StateContextType {
   updateLinks: (newLink: Link) => void;
   updateLinkAtIndex: (index: number, updatedLink: Link) => void;
   removeLink: (index: number) => void;
+  setProfileImage: (imageUrl: string | null) => void;
+  setUserInfo: (userInfo: Partial<User>) => void;
 }
 
 const StateLinkContext = createContext<StateContextType | undefined>(undefined);
@@ -35,7 +44,12 @@ interface StateProviderProps {
 export const StateProvider = ({ children }: StateProviderProps) => {
   const [globalObject, setGlobalObject] = useState<GlobalState>({
     LINKS: [],
-    USER: {},
+    USER: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      profileImage: null,
+    },
   });
 
   const updateLinks = (newLink: Link) => {
@@ -67,8 +81,28 @@ export const StateProvider = ({ children }: StateProviderProps) => {
     });
   };
 
+  const setProfileImage = (imageUrl: string | null) => {
+    setGlobalObject((prevState) => ({
+      ...prevState,
+      USER: {
+        ...prevState.USER,
+        profileImage: imageUrl,
+      },
+    }));
+  };
+
+  const setUserInfo = (userInfo: Partial<User>) => {
+    setGlobalObject((prevState) => ({
+      ...prevState,
+      USER: {
+        ...prevState.USER,
+        ...userInfo,
+      },
+    }));
+  };
+
   return (
-    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks, updateLinkAtIndex, removeLink }}>
+    <StateLinkContext.Provider value={{ globalObject, setGlobalObject, updateLinks, updateLinkAtIndex, removeLink, setProfileImage, setUserInfo }}>
       {children}
     </StateLinkContext.Provider>
   );
