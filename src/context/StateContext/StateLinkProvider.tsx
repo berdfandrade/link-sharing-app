@@ -88,6 +88,7 @@ export const StateProvider = ({ children }: StateProviderProps) => {
         ...prevState.USER,
         profileImage: imageUrl,
       },
+
     }));
   };
 

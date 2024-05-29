@@ -10,6 +10,7 @@ interface IProfilePicUpload {
 
 export default function ProfilePicUpload({ url }: IProfilePicUpload) {
   
+  const {globalObject} = useStateLinkContext() 
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const { setProfileImage } = useStateLinkContext();
@@ -25,6 +26,7 @@ export default function ProfilePicUpload({ url }: IProfilePicUpload) {
 
       // Atualiza o estado global com a imagem selecionada
       setProfileImage(imageUrl);
+      console.log(globalObject.USER.profileImage)
     }
   };
 
