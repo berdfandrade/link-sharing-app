@@ -54,15 +54,7 @@ export default function ProfilePicUpload({ url }: IProfilePicUpload) {
           objectFit="cover"
           width="100%"
           height="100%"
-        />
-      ) : url ? (
-        <Image
-          borderRadius="lg"
-          src={url}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-        />
+        /> 
       ) : (
         <NullPhotoIcon />
       )}

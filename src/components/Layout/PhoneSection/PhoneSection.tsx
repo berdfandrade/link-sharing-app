@@ -24,6 +24,7 @@ export default function PhoneSection() {
         <Center>
           <Flex gap={8} flexDir="column">
             {/* PASSAR O avatarURL para o globalObject e depois para isso aqui */}
+            
             {globalObject.USER.profileImage ? (
               <AvatarPic url={globalObject.USER.profileImage} />
             ) : (
